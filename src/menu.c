@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lib/package.h"
+
+#include "mainFunc.c"
 
 void header() {
     printf("\n\n\n=== / Bem vindo ao CineCapi / ===\n");
@@ -8,17 +9,10 @@ void header() {
     printf("[2] - Ingressos Disponiveis\n"); //Ver o tamanho da pilha de ingressos
     printf("[3] - Tamanho da fila\n"); //Ver o tamanho atual da fila
 
-    //Para dev
+    //Para teste
     printf("[4] - Preencher Fila\n");
     printf("[5] - Zerar Processo\n");
     printf("[0] - Sair\n");
-}
-
-int getSelection(){    
-    int op;
-    printf("Selecione uma Opcao: ");    
-    scanf("%d", &op);
-    return op;
 }
 
 void setPath(int *Running){
