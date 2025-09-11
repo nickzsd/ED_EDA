@@ -1,38 +1,20 @@
+
+#ifndef PILESUTILS_H
+#define PILESUTILS_H
+
+/** Declarações de funções para manipulação de pilhas de tickets */
 #include "vars.h"
 
-void initialize(pile *p) {
-    p->front = -1;
-    p->rear = -1;
-}
+/**
+ * Inicializa a pilha
+ */
+void initStack(Stack *stack);
+int isStackEmpty(Stack *stack);
+int isStackFull(Stack *stack);
+void push(Stack *stack, Ticket ticket);
+Ticket pop(Stack *stack);
+Ticket findTicketInStack(Stack *stack, char *name);
+void fillStack(Stack *stack, Ticket ticket, int amount);
+void clearStack(Stack *stack);
 
-int isEmpty(pile *p) {
-    return p->rear == -1;
-}
-
-int isFull(pile *p) {
-    return p->rear == 256 - 1;
-}
-
-void push(pile *p, Ticket value) {
-    if (isFull(p)) {
-        printf("Pilha cheia!\n");
-        return;
-    }
-
-    p->data[++(p->rear)] = value;
-
-    if (p->front == -1) {
-        p->front = 0;
-    }    
-}
-
-void pop(pile *p) {
-    if (isEmpty(p)) {
-        printf("Pilha vazia!\n");
-        return;
-    }    
-
-    if (p->rear < 0) {
-        p->front = -1;
-    }    
-}
+#endif

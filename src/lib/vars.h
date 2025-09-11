@@ -4,30 +4,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * Estrutura que representa um ticket
+ */
 typedef struct {
-    char  Movie_name[100];
-    int   room;
-    int   time[2]; //HH-MM
-    float Price;    
+    char name[100];
+    int room;
+    int time[2]; //HH-MM
+    float price;
 } Ticket;
 
+/**
+ * Estrutura que representa uma pilha de tickets
+ */
 typedef struct {
     Ticket data[50];
-    int front;
-    int rear;    
-} pile;
+    int top;
+} Stack;
 
+/**
+ * Estrutura que representa uma fila de tickets
+ */
 typedef struct {
-    int Vetor[256];
-    int Comeco;
-    int fim;
-} Fila;
+    Ticket array[256];
+    int start;
+    int end;
+    int size;
+} Queue;
 
-int getSelection(){
-    int op;
-    printf("Selecione uma Opcao: ");    
-    scanf("%d", &op);
-    return op;
-}
+/**
+ * Lê a seleção do usuário
+ */
+int getSelection();
 
 #endif

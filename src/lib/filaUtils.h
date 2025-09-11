@@ -1,22 +1,20 @@
+
+#ifndef FILAUTILS_H
+#define FILAUTILS_H
+
 #include "vars.h"
 
-void initFila(Fila *fila){
-    fila->Comeco = 0;
-    fila->fim = 0;
-}
- 
-void Enfileirar(int _p, Fila *fila){
-    if(fila->fim < 255){
-        fila->Vetor[fila->fim] = _p;
-        fila->fim++;        
-    } else {
-        printf("Fila cheia");
-    }
-}
- 
-void Desenfileirar(Fila *fila){
-    int temp = fila->Vetor[fila->Comeco];
-    fila->Comeco++;
-    
-    printf("Muito obrigado por comprar aqui: %d\n", temp);
-}
+/**
+ * Declarações de funções para manipulação de filas de tickets
+ */
+
+void initQueue(Queue *queue);
+int isQueueFull(Queue *queue);
+int isQueueEmpty(Queue *queue);
+void enqueue(Queue *queue, Ticket ticket);
+Ticket dequeue(Queue *queue);
+Ticket findTicketInQueue(Queue *queue, char *name);
+void fillQueue(Queue *queue, Ticket ticket, int amount);
+void clearQueue(Queue *queue);
+
+#endif
